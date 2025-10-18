@@ -539,7 +539,7 @@ Deploy the following VMs:
 
 | VM        | NetAdapter | NetAdapter 2       | NetAdapter 3 | NetAdapter 4 |
 | ---       | ---        | ---                | ---          | ---          |
-| VPN-PH    | NAT        | Bridge (Replicate) | Host-Only    | Host-Only    |
+| NetOps    | NAT        | Bridge (Replicate) | Host-Only    | Host-Only    |
 
 <br>
 
@@ -1452,6 +1452,11 @@ Now hide behind the firewall.
 @UTM-PH
 config t
 IP Nat inside source static tcp 192.168.103.21 80 208.8.8.101 8080
+IP Nat inside source static tcp 192.168.103.21 443 208.8.8.101 8080
+IP Nat inside source static tcp 192.168.103.22 80 208.8.8.101 8080
+IP Nat inside source static tcp 192.168.103.22 443 208.8.8.101 8080
+//IP Nat inside source static tcp 10.11.1.4 23 200.0.0.11 1600//FOR OWN IP//
+//IP Nat inside source static tcp 10.11.1.6 80 200.0.0.11 7000//FOR OWN IP//
 end
 show ip nat translation
 
